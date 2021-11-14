@@ -1,0 +1,23 @@
+{% extends 'gym/base.html' %}
+{% load mathfilters %}
+
+{% block title %}
+Тренеры
+{% endblock title %}
+
+{% block content %}
+<div class="flex" style="overflow: hidden; margin-left: auto; margin-right: auto; ">
+  <div style="width: 1000%;">
+    {% for f in form %}
+    <div class="card" style="width: 18rem; float: left; margin-right: 10px;" >
+      <img src="/media/{{f.photo}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ f.surname }} {{ f.name }} </h5>
+        <p class="card-text">{{ f.about }}</p>
+        <p class="card-text">Вартість занняття {{ f.price }} грн</p>
+      </div>
+    </div>
+    {% endfor%}
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends 'gym/base.html' %}
+{% load mathfilters %}
+
+{% block title %}
+Абонементы
+{% endblock title %}
+
+{% block content %}
+<div class="flex">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for f in form %}
+    <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{f.name}}</h5>
+            <p class="card-text">{{f.about}}</p>
+            <p class="card-text">Вартість за рік {{ f.price }} грн</p>
+            <p class="card-text">Вартість за місяць {{ f.price|div:12 }} грн</p>
+            <a href="tel:0979661886" class="btn btn-primary">Замовити</a>
+          </div>
+        </div>
+      </div>
+    {% endfor%}
+  </div>
+</div>
+
+{% endblock content %}
